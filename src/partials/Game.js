@@ -10,8 +10,6 @@ export default class Game {
 
     this.gameElement = document.getElementById(element);
     this.radius = 8;
-    this.boardWidth = 256;
-    this.boardHeight = 150;
     this.paddleWidth = 8;
     this.paddleHeight = 56;
     this.boardGap = 10;
@@ -37,12 +35,20 @@ export default class Game {
     )
     this.ball = new Ball(
     this.radius,
-    this.boardWidth,
-    this.boardHeight,
-    )
+    this.width,
+    this.height,
+    );
+    document.addEventListener('keydown', event => {
+      if (event.key === KEYS.spaceBar) {
+        this.pause = !this.pause;
+      }
+    })
   }
 
   render() {
+    if (this.pause){
+      return;
+    }
     // empty game elemensts
     this.gameElement.innerHTML = "";
 
@@ -57,7 +63,7 @@ export default class Game {
     this.board.render(svg);
     this.player1.render(svg);
     this.player2.render(svg);
-    this.ball.render(svg);
+    this.ball.render(svg, this.player1, this.player2);
   }
 }
 
