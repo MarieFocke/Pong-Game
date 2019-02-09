@@ -6,13 +6,13 @@ export default class Score {
     this.size = size;
   }
   render(svg, score) {
-    let text = document.createElementNS(SVG_NS, 'text');
-        text.setAttributeNS(null, "x", this.x);
-        text.setAttributeNS(null, "y", this.y);
-        text.setAttributeNS(null, "fill", "white");
-        text.setAttributeNS(null, "size", this.size);
-        text.setAttributeNS(null, "font-family", "Arial");
-        text.textContent = score;
-        svg.appendChild(text);
+    let text = document.createElementNS(SVG_NS, "text");
+    text.setAttributeNS(null, "x", this.x);
+    text.setAttributeNS(null, "y", this.y);
+    text.setAttributeNS(null, "fill", "white");
+    text.setAttributeNS(null, "size", this.size);
+    text.setAttributeNS(null, "font-family", "Arial");
+    text.textContent = score;
+    svg.appendChild(text);
   }
 }
