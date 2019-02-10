@@ -8,6 +8,15 @@ export default class Ball {
     this.ping = new Audio("public/sounds/pong-01.wav");
     this.reset();
   }
+  start() {
+    this.x = this.boardWidth / 2;
+    this.y = this.boardHeight / 2;
+    this.goal = 0;
+    while (this.goal === 0) {
+      this.vx = (Math.random() * this.boardWidth) / 2;
+      this.vy = Math.floor(Math.random() * this.boardHeight /2);
+    }
+  }
   reset() {
     this.x = this.boardWidth / 2;
     this.y = this.boardHeight / 2;
@@ -67,6 +76,9 @@ export default class Ball {
   goal(player) {
     player.score++;
     this.reset();
+    if (player.score === 5 || player.score === 5) {
+      this.start;
+    }
   }
   render(svg, player1, player2) {
     this.x += this.vx;

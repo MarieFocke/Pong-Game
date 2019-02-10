@@ -39,7 +39,7 @@ export default class Game {
       if (event.key === KEYS.spaceBar) {
         this.pause = !this.pause;
       }
-    });
+    })
   }
   render() {
     if (this.pause) {
